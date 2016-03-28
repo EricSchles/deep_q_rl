@@ -8,7 +8,7 @@ import os
 import argparse
 import logging
 import ale_python_interface
-import cPickle
+import pickle
 import numpy as np
 import theano
 
@@ -223,7 +223,7 @@ def launch(args, defaults, description):
                                          rng)
     else:
         handle = open(parameters.nn_file, 'r')
-        network = cPickle.load(handle)
+        network = pickle.load(handle)
 
     agent = ale_agent.NeuralAgent(network,
                                   parameters.epsilon_start,
